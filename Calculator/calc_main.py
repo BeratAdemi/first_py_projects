@@ -1,4 +1,5 @@
 # This is a calculator!
+import help
 
 # Defining an introduction
 def start():
@@ -74,12 +75,13 @@ def in_num2():
     return val
 
 start()
-
 run = True
 while run:
     func = in_func()
     if func[0:4] == 'exit':
         print 'Thank you for using this program :)'
+    elif func[0:4] == 'help':
+        print 'Loading...'
     else:
         num1 = in_num1()
         num2 = in_num2()
@@ -108,6 +110,9 @@ while run:
         mul_num2 = int(num2)
         res = mul(mul_num1, mul_num2)
         print res
+
+    elif func[0:4] == 'help':
+        help.help()
 
     elif func[0:4] == 'exit':
         run = False

@@ -14,7 +14,7 @@ def start():
         '1. Enter the function you want to use (add/sub/div/mul) \n' \
         '2. Enter the first number \n' \
         '3. Enter the second number \n' \
-        'If you need any further help call the function help().\n' \
+        'If you need any further help call the function help.\n' \
 
     raw_input('Press Enter to start')
     return

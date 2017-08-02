@@ -17,3 +17,4 @@ If you need any further help call the function help().
  **Roadmap**
  - add scientific functions
  - float instead of int
+ - add GUI

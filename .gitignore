@@ -23,5 +23,5 @@ node_modules
 *.xm*
 
 # Folder
-/Users/berat/PycharmProjects/first_py_projects/_mac/*
-/Users/berat/PycharmProjects/first_py_projects/codestyles/*
+**/first_py_projects/_mac
+**/first_py_projects/codestyles

@@ -7,6 +7,7 @@ def help():
           'sub      subtraction \n' \
           'mul      multiplication \n' \
           'div      division \n' \
+          'mod      Modulo \n' \
           'help     displays this help page \n' \
           'exit     ends the program \n'
 

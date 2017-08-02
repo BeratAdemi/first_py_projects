@@ -4,6 +4,8 @@
      subtraction (sub)
      multiplication (mul)
      division (div)
+     modulo (mod)
+     help (help)
 
   **You call functions like this:**
   
@@ -13,5 +15,5 @@
 If you need any further help call the function help().
 
  **Roadmap**
- - add Modulo
  - add scientific functions
+ - float instead of int

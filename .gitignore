@@ -18,10 +18,12 @@ Thumbs.db
 
 # Application specific files
 venv
+*.iml
 node_modules
 .sass-cache
 *.xm*
 
 # Folder
-**/first_py_projects/_mac
-**/first_py_projects/codestyles
+_mac/
+codestyles/
+.idea/

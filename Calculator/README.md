@@ -5,6 +5,7 @@
      multiplication (mul)
      division (div)
      modulo (mod)
+     cosine (cos; in radians)
      help (help)
 
   **You call functions like this:**

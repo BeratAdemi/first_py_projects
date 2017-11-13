@@ -37,6 +37,12 @@ def mul(a, b):
     return mult
 
 
+# Function for cosine radiant
+def cos(a):
+    cosi = math.cos(a)
+    return cosi
+
+
 # Function for ending the program
 def exit():
     return
@@ -49,7 +55,9 @@ def in_func():
     while x:
         funct = raw_input('Enter a function: ')
         try:
-            if funct == 'add' or funct == 'sub' or funct == 'div' or funct == 'mul' or funct == 'mod' or funct == 'help' or funct == 'exit':
+            if funct == 'add' or funct == 'sub' or funct == 'div' \
+                    or funct == 'mul' or funct == 'mod' or funct == 'cos' \
+                    or funct == 'help' or funct == 'exit':
                 x = False
             else:
                 print 'This function is not supported'
@@ -58,7 +66,7 @@ def in_func():
     return funct
 
 
-# Getting user input for the first number and checking, if input is an int; returning the input
+# Getting user input for the first number and checking, if input is an int or constant; returning the input
 def in_num1():
     val = 0
     x = True
@@ -75,6 +83,12 @@ def in_num1():
                 elif number1 == 'e':
                     x = False
                     return math.e
+                elif number1 == '-pi':
+                    x = False
+                    return math.pi*(-1)
+                elif number1 == '-e':
+                    x = False
+                    return math.e*(-1)
                 else:
                     print 'This is not a number'
             except ValueError:
@@ -82,7 +96,7 @@ def in_num1():
     return val
 
 
-# Getting user input for the second number and checking, if input is an int; returning the input
+# Getting user input for the second number and checking, if input is an int or constant; returning the input
 def in_num2():
     val = 0
     x = True
@@ -143,8 +157,11 @@ while run:
         continue
     else:
         # User input for numbers
-        num1 = in_num1()
-        num2 = in_num2()
+        if func[0:3] == 'cos':
+            num1 = in_num1()
+        else:
+            num1 = in_num1()
+            num2 = in_num2()
     # Variable for the later printed results
     res = 0
 
@@ -178,6 +195,11 @@ while run:
         mul_num1 = num1
         mul_num2 = num2
         res = mul(mul_num1, mul_num2)
+        print res
+
+    elif func[0:3] == 'cos':
+        cos_num = num1
+        res = cos(cos_num)
         print res
 
     else:

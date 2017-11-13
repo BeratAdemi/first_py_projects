@@ -84,6 +84,7 @@ def in_num2():
             print 'This is not a number'
     return val
 
+
 '''
     EXECUTED CODE
 '''

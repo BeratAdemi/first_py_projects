@@ -1,5 +1,6 @@
 # Importing necessary modules
 import help
+import math
 
 '''
     FUNCTIONS
@@ -67,7 +68,17 @@ def in_num1():
             val = int(number1)
             x = False
         except ValueError:
-            print 'This is not a number'
+            try:
+                if number1 == 'pi':
+                    x = False
+                    return math.pi
+                elif number1 == 'e':
+                    x = False
+                    return math.e
+                else:
+                    print 'This is not a number'
+            except ValueError:
+                pass
     return val
 
 
@@ -81,7 +92,17 @@ def in_num2():
             val = int(number2)
             x = False
         except ValueError:
-            print 'This is not a number'
+            try:
+                if number2 == 'pi':
+                    x = False
+                    return math.pi
+                elif number2 == 'e':
+                    x = False
+                    return math.e
+                else:
+                    print 'This is not a number'
+            except ValueError:
+                pass
     return val
 
 

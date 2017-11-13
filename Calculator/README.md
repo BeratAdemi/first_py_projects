@@ -10,8 +10,9 @@
   **You call functions like this:**
   
 1. Enter the function you want to use (add/sub/div/mul)
-2. Enter the first number
-3. Enter the second number
+2. Enter the first number (constants available: pi,e)
+3. Enter the second number (constants available: pi,e)
+
 If you need any further help call the function help().
 
  **Roadmap**

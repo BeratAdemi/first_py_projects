@@ -123,7 +123,7 @@ print 'Welcome! This is calculator offers functions like:\n' \
       '1. Enter the function you want to use (e.g. add/mul/mod) \n' \
       '2. Enter the first number \n' \
       '3. Enter the second number \n' \
-      'If you want to see a list of all supported functions call the function help.\n'
+      'If you want to see a list of all supported functions and constants call the function help.\n'
 
 # Setting run as True, run = False will stop the program
 run = True

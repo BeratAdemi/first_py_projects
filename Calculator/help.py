@@ -9,6 +9,11 @@ def help():
           'div      division \n' \
           'mod      Modulo \n' \
           'help     displays this help page \n' \
-          'exit     ends the program \n'
+          'exit     ends the program \n' \
+          '\n' \
+          'Constants: \n' \
+          'pi \n' \
+          'e \n' \
+          'To use constants type them as a number. \n'
 
     raw_input('Press enter to exit...')

@@ -37,10 +37,52 @@ def mul(a, b):
     return mult
 
 
-# Function for cosine radiant
+# Function for cosine radian
 def cos(a):
     cosi = math.cos(a)
     return cosi
+
+
+# Function for sine radian
+def sin(a):
+    sine = math.sin(a)
+    return sine
+
+
+# Function for tangent radian
+def tan(a):
+    tang = math.tan(a)
+    return tang
+
+
+# Function for arc cosine radian
+def acos(a):
+    acosi = math.acos(a)
+    return acosi
+
+
+# Function for arc sine radian
+def asin(a):
+    asine = math.asin(a)
+    return asine
+
+
+# Function for arc tangent radian
+def atan(a):
+    atang = math.atan(a)
+    return atang
+
+
+# Function for degrees to radians conversion
+def degtorad(a):
+    degtoradian = math.radians(a)
+    return degtoradian
+
+
+# Function for radians to degrees conversion
+def radtodeg(a):
+    radtodegree = math.degrees(a)
+    return radtodegree
 
 
 # Function for ending the program
@@ -53,19 +95,68 @@ def in_func():
     funct = ''
     x = True
     while x:
-        funct = raw_input('Enter a function: ')
+        funct = raw_input('Input: ')
+        funct = funct.replace(" ", ";")
         try:
-            if funct == 'add' or funct == 'sub' or funct == 'div' \
-                    or funct == 'mul' or funct == 'mod' or funct == 'cos' \
-                    or funct == 'help' or funct == 'exit':
-                x = False
+            functio, numb1, numb2 = funct.split(';')
+            if functio == 'add' or func == 'sub' or func == 'mul' or func == 'div' or func == 'mod' or func == 'cos' \
+                    or func == 'sin' or func == 'tan' or func == 'acos' or func == 'asin' or func == 'atan' \
+                    or func == 'degtorad' or func == 'radtodeg' or func == 'exit' or func == 'help':
+                try:
+                    number1 = int(numb1)
+                    x = False
+                except ValueError:
+                    try:
+                        if numb1 == 'pi':
+                            number1 = math.pi
+                            x = False
+                        elif numb1 == 'e':
+                            number1 = math.e
+                            x = False
+                        elif numb1 == '-pi':
+                            number1 = math.pi*(-1)
+                            x = False
+                        elif numb1 == '-e':
+                            number1 = math.e*(-1)
+                            x = False
+                        else:
+                            x = True
+                            print 'The first number is not a number'
+                    except ValueError:
+                        x = True
+                        pass
+                try:
+                    number2 = int(numb2)
+                    x = False
+                except ValueError:
+                    try:
+                        if numb2 == 'pi':
+                            number2 = math.pi
+                            x = False
+                        elif numb2 == 'e':
+                            number2 = math.e
+                            x = False
+                        elif numb2 == '-pi':
+                            number2 = math.pi*(-1)
+                            x = False
+                        elif numb2 == '-e':
+                            number2 = math.e*(-1)
+                            x = False
+                        else:
+                            x = True
+                            print 'This is not a number'
+                    except ValueError:
+                        x = True
+                        pass
             else:
+                x = True
                 print 'This function is not supported'
         except Exception:
             pass
-    return funct
+    return functio,number1,number2
 
 
+'''
 # Getting user input for the first number and checking, if input is an int or constant; returning the input
 def in_num1():
     val = 0
@@ -119,7 +210,7 @@ def in_num2():
                 pass
     return val
 
-
+'''
 '''
     EXECUTED CODE
 '''

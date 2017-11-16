@@ -8,7 +8,7 @@ def help():
           'mul      multiplication \n' \
           'div      division \n' \
           'mod      Modulo \n' \
-          'cos      cosine (radians) \n' \
+          'cos      cosine \n' \
           'help     displays this help page \n' \
           'exit     ends the program \n' \
           '\n' \

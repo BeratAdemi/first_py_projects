@@ -5,14 +5,16 @@
      multiplication (mul)
      division (div)
      modulo (mod)
-     cosine (cos; in radians)
+     cosine (cos)
      help (help)
 
   **You call functions like this:**
-  
-1. Enter the function you want to use (add/sub/div/mul)
-2. Enter the first number (constants available: pi,e)
-3. Enter the second number (constants available: pi,e)
+
+Enter the function you want to use (e.g. add,mul,mod), then the
+number(s)(constants available: pi,e) if needed (e.g. the function help
+does not need a number).
+
+Separate the input by spaces: "add 1 1" or "cos 1".
 
 If you need any further help call the function help().
 

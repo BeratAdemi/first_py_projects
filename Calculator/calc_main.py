@@ -91,17 +91,20 @@ def exit():
 
 
 # Getting user input for function that should be used, checking if input is a valid function and returning it
-def in_func():
-    funct = ''
+def in_put():
+    global number1
+    global number2
+    global functio
+    number1 = 0
+    number2 = 0
     x = True
     while x:
         funct = raw_input('Input: ')
         funct = funct.replace(" ", ";")
+        funct = funct + ';' + ';'
         try:
-            functio, numb1, numb2 = funct.split(';')
-            if functio == 'add' or func == 'sub' or func == 'mul' or func == 'div' or func == 'mod' or func == 'cos' \
-                    or func == 'sin' or func == 'tan' or func == 'acos' or func == 'asin' or func == 'atan' \
-                    or func == 'degtorad' or func == 'radtodeg' or func == 'exit' or func == 'help':
+            functio, numb1, numb2 = funct.split(';', 2)
+            if functio == 'add' or functio == 'sub' or functio == 'mul' or functio == 'div' or functio == 'mod':
                 try:
                     number1 = int(numb1)
                     x = False
@@ -126,6 +129,7 @@ def in_func():
                         x = True
                         pass
                 try:
+                    numb2 = numb2.split(';')[0]
                     number2 = int(numb2)
                     x = False
                 except ValueError:
@@ -144,73 +148,45 @@ def in_func():
                             x = False
                         else:
                             x = True
-                            print 'This is not a number'
+                            print 'The second number is not a number'
                     except ValueError:
                         x = True
                         pass
+            elif functio == 'cos' or functio == 'sin' or functio == 'tan' or functio == 'acos' \
+                    or functio == 'asin' or functio == 'atan' or functio == 'degtorad' or functio == 'radtodeg':
+                try:
+                    number1 = int(numb1)
+                    x = False
+                except ValueError:
+                    try:
+                        if numb1 == 'pi':
+                            number1 = math.pi
+                            x = False
+                        elif numb1 == 'e':
+                            number1 = math.e
+                            x = False
+                        elif numb1 == '-pi':
+                            number1 = math.pi*(-1)
+                            x = False
+                        elif numb1 == '-e':
+                            number1 = math.e*(-1)
+                            x = False
+                        else:
+                            x = True
+                            print 'The first number is not a number'
+                    except ValueError:
+                        x = True
+                        pass
+            elif functio == 'exit' or functio == 'help':
+                x = False
             else:
                 x = True
                 print 'This function is not supported'
         except Exception:
             pass
-    return functio,number1,number2
+    return functio, number1, number2
 
 
-'''
-# Getting user input for the first number and checking, if input is an int or constant; returning the input
-def in_num1():
-    val = 0
-    x = True
-    while x:
-        number1 = raw_input('Enter the first number: ')
-        try:
-            val = int(number1)
-            x = False
-        except ValueError:
-            try:
-                if number1 == 'pi':
-                    x = False
-                    return math.pi
-                elif number1 == 'e':
-                    x = False
-                    return math.e
-                elif number1 == '-pi':
-                    x = False
-                    return math.pi*(-1)
-                elif number1 == '-e':
-                    x = False
-                    return math.e*(-1)
-                else:
-                    print 'This is not a number'
-            except ValueError:
-                pass
-    return val
-
-
-# Getting user input for the second number and checking, if input is an int or constant; returning the input
-def in_num2():
-    val = 0
-    x = True
-    while x:
-        number2 = raw_input('Enter the second number: ')
-        try:
-            val = int(number2)
-            x = False
-        except ValueError:
-            try:
-                if number2 == 'pi':
-                    x = False
-                    return math.pi
-                elif number2 == 'e':
-                    x = False
-                    return math.e
-                else:
-                    print 'This is not a number'
-            except ValueError:
-                pass
-    return val
-
-'''
 '''
     EXECUTED CODE
 '''
@@ -225,9 +201,10 @@ print 'Welcome! This is calculator offers functions like:\n' \
       'modulo (mod) \n' \
       '\n' \
       'You use the functions like this:\n' \
-      '1. Enter the function you want to use (e.g. add/mul/mod) \n' \
-      '2. Enter the first number \n' \
-      '3. Enter the second number \n' \
+      '\n' \
+      'Enter the function you want to use (e.g. add/mul/mod), then the number(s) if needed. \n' \
+      'Make sure to separate them with spaces (\"add 1 1\" or \"cos 1\")\n' \
+      '\n'\
       'If you want to see a list of all supported functions and constants call the function help.\n'
 
 # Setting run as True, run = False will stop the program
@@ -236,7 +213,7 @@ run = True
 # Code for the calculator
 while run:
     # User input for the function
-    func = in_func()
+    func, num1, num2 = in_put()
     # Checking if user input for numbers is needed or if help/exit is requested
     if func[0:4] == 'exit':
         print 'Thank you for using this program :)'
@@ -246,13 +223,6 @@ while run:
         print 'Loading...'
         help.help()
         continue
-    else:
-        # User input for numbers
-        if func[0:3] == 'cos':
-            num1 = in_num1()
-        else:
-            num1 = in_num1()
-            num2 = in_num2()
     # Variable for the later printed results
     res = 0
 
@@ -291,6 +261,47 @@ while run:
     elif func[0:3] == 'cos':
         cos_num = num1
         res = cos(cos_num)
+        res_in_deg = radtodeg(res)
+        print "Radiant(s): {} Degree(s): {}".format(res, res_in_deg)
+
+    elif func[0:3] == 'sin':
+        sin_num = num1
+        res = sin(sin_num)
+        res_in_deg = radtodeg(res)
+        print "Radiant(s): {} Degree(s): {}".format(res, res_in_deg)
+
+    elif func[0:3] == 'tan':
+        tan_num = num1
+        res = tan(tan_num)
+        res_in_deg = radtodeg(res)
+        print "Radiant(s): {} Degree(s): {}".format(res, res_in_deg)
+
+    elif func[0:4] == 'acos':
+        acos_num = num1
+        res = acos(acos_num)
+        res_in_deg = radtodeg(res)
+        print "Radiant(s): {} Degree(s): {}".format(res, res_in_deg)
+
+    elif func[0:4] == 'asin':
+        asin_num = num1
+        res = asin(asin_num)
+        res_in_deg = radtodeg(res)
+        print "Radiant(s): {} Degree(s): {}".format(res, res_in_deg)
+
+    elif func[0:4] == 'atan':
+        atan_num = num1
+        res = atan(atan_num)
+        res_in_deg = radtodeg(res)
+        print "Radiant(s): {} Degree(s): {}".format(res, res_in_deg)
+
+    elif func[0:8] == 'degtorad':
+        dtg_num = num1
+        res = degtorad(dtg_num)
+        print res
+
+    elif func[0:8] == 'radtodeg':
+        rtg_num = num1
+        res = radtodeg(rtg_num)
         print res
 
     else:
